@@ -1,0 +1,98 @@
+2026-04-07 12:43:35 | INFO | MainThread | Starting KB sync
+2026-04-07 12:43:35 | INFO | MainThread | Repository: knowledge-base (git@github.psa-cloud.com:ela00/knowledge-base.git)
+2026-04-07 12:43:35 | INFO | MainThread | Local clone: .cache/repos/knowledge-base
+2026-04-07 12:43:35 | INFO | MainThread | Files to sync: 27
+2026-04-07 12:43:35 | INFO | MainThread | Exclude globs: _sidebar.md, README.md, skeletton_template.md
+2026-04-07 12:43:35 | INFO | MainThread | SSH command enabled: True
+2026-04-07 12:43:35 | INFO | MainThread | Max workers: 8
+2026-04-07 12:43:35 | INFO | MainThread | [stage-cluster] Auth mode: basic
+2026-04-07 12:43:35 | INFO | MainThread | [stage-cluster] Spaces configured explicitly: filebox
+2026-04-07 12:43:35 | INFO | MainThread | [stage-cluster] Target spaces: filebox
+2026-04-07 12:43:35 | INFO | MainThread | Resolved 1 target-space jobs for sync
+2026-04-07 12:43:35 | INFO | kb-sync_0 | [stage-cluster:filebox] Worker started with auth mode: basic
+2026-04-07 12:43:35 | INFO | kb-sync_0 | [stage-cluster:filebox] Starting sync
+2026-04-07 12:43:35 | INFO | kb-sync_0 | [stage-cluster:filebox] List entries attempt 1/3 -> GET https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] List entries -> HTTP 200
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] Existing entries with repo prefix: 0
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/Gestion_Lags_Kafka_et_Responsabilité_Topics.md.MD attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/Gestion_Lags_Kafka_et_Responsabilité_Topics.md.MD -> HTTP 200
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/permanence/Gestion_Lags_Kafka_et_Responsabilité_Topics.md.MD
+2026-04-07 12:43:36 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/checklist.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:37 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/checklist.md -> HTTP 200
+2026-04-07 12:43:37 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/permanence/checklist.md
+2026-04-07 12:43:37 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/Remettre un nœud ELA avec un data path vide.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:38 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/permanence/Remettre un nœud ELA avec un data path vide.md -> HTTP 200
+2026-04-07 12:43:38 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/permanence/Remettre un nœud ELA avec un data path vide.md
+2026-04-07 12:43:38 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/elk_clusters.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:39 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/elk_clusters.md -> HTTP 200
+2026-04-07 12:43:39 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/elk_clusters.md
+2026-04-07 12:43:39 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/watcher_create_cron.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:40 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/watcher_create_cron.md -> HTTP 200
+2026-04-07 12:43:40 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/watcher_create_cron.md
+2026-04-07 12:43:40 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/querying_es_basic_data_extraction.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:42 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/querying_es_basic_data_extraction.md -> HTTP 200
+2026-04-07 12:43:42 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/querying_es_basic_data_extraction.md
+2026-04-07 12:43:42 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/fetch_kba_user_list_daily_usage.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:43 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/fetch_kba_user_list_daily_usage.md -> HTTP 200
+2026-04-07 12:43:43 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/fetch_kba_user_list_daily_usage.md
+2026-04-07 12:43:43 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/python_script_data_extraction.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:44 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/python_script_data_extraction.md -> HTTP 200
+2026-04-07 12:43:44 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/python_script_data_extraction.md
+2026-04-07 12:43:44 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/count_fields_number_indices.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:45 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/count_fields_number_indices.md -> HTTP 200
+2026-04-07 12:43:45 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/count_fields_number_indices.md
+2026-04-07 12:43:45 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/import_trained_models_docker.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:46 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/import_trained_models_docker.md -> HTTP 200
+2026-04-07 12:43:46 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/import_trained_models_docker.md
+2026-04-07 12:43:46 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/python_script_simple_queries.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:47 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/python_script_simple_queries.md -> HTTP 200
+2026-04-07 12:43:47 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/python_script_simple_queries.md
+2026-04-07 12:43:47 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/bash_script_data_extraction.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:49 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elasticsearch/bash_script_data_extraction.md -> HTTP 200
+2026-04-07 12:43:49 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elasticsearch/bash_script_data_extraction.md
+2026-04-07 12:43:49 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/kibana/permission_debug_user_permission.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:50 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/kibana/permission_debug_user_permission.md -> HTTP 200
+2026-04-07 12:43:50 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/kibana/permission_debug_user_permission.md
+2026-04-07 12:43:50 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/kibana/runtime_fields.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:51 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/kibana/runtime_fields.md -> HTTP 200
+2026-04-07 12:43:51 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/kibana/runtime_fields.md
+2026-04-07 12:43:51 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/ece/setup_crawler_sharepoint.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:52 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/ece/setup_crawler_sharepoint.md -> HTTP 200
+2026-04-07 12:43:52 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/ece/setup_crawler_sharepoint.md
+2026-04-07 12:43:52 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/cloud/bedrock_llm_pricing.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:53 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/cloud/bedrock_llm_pricing.md -> HTTP 200
+2026-04-07 12:43:53 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/cloud/bedrock_llm_pricing.md
+2026-04-07 12:43:53 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/start_error_Cannot_determine_timezone_from_nil.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:55 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/start_error_Cannot_determine_timezone_from_nil.md -> HTTP 200
+2026-04-07 12:43:55 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/logstash/start_error_Cannot_determine_timezone_from_nil.md
+2026-04-07 12:43:55 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/plugin_development_ubuntu.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:56 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/plugin_development_ubuntu.md -> HTTP 200
+2026-04-07 12:43:56 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/logstash/plugin_development_ubuntu.md
+2026-04-07 12:43:56 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/openetelemetry_protobuff.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:57 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/logstash/openetelemetry_protobuff.md -> HTTP 200
+2026-04-07 12:43:57 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/logstash/openetelemetry_protobuff.md
+2026-04-07 12:43:57 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/build_simplifier_mermaid_schemas.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:58 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/build_simplifier_mermaid_schemas.md -> HTTP 200
+2026-04-07 12:43:58 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/architecture/build_simplifier_mermaid_schemas.md
+2026-04-07 12:43:58 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elastic-mangement/extract_ilm_retentions.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:43:59 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/elastic-mangement/extract_ilm_retentions.md -> HTTP 200
+2026-04-07 12:43:59 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/elastic-mangement/extract_ilm_retentions.md
+2026-04-07 12:43:59 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/msk_find_documents.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:00 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/msk_find_documents.md -> HTTP 200
+2026-04-07 12:44:00 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/infra/msk_find_documents.md
+2026-04-07 12:44:00 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/replace_hdd_physical_server.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:01 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/replace_hdd_physical_server.md -> HTTP 200
+2026-04-07 12:44:01 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/infra/replace_hdd_physical_server.md
+2026-04-07 12:44:01 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/create_ssl_certificate_kafka.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:02 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/create_ssl_certificate_kafka.md -> HTTP 200
+2026-04-07 12:44:02 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/infra/create_ssl_certificate_kafka.md
+2026-04-07 12:44:02 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/fs_saturation_after_sles15_upgrade.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:03 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/infra/fs_saturation_after_sles15_upgrade.md -> HTTP 200
+2026-04-07 12:44:03 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/infra/fs_saturation_after_sles15_upgrade.md
+2026-04-07 12:44:03 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/cloud/kubernetes_logging_flaws.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:04 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/cloud/kubernetes_logging_flaws.md -> HTTP 200
+2026-04-07 12:44:04 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/architecture/cloud/kubernetes_logging_flaws.md
+2026-04-07 12:44:04 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/cloud/genai.md attempt 1/3 -> POST https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243/s/filebox/internal/observability_ai_assistant/kb/entries/save
+2026-04-07 12:44:05 | INFO | kb-sync_0 | [stage-cluster:filebox] Save entry knowledge-base/architecture/cloud/genai.md -> HTTP 200
+2026-04-07 12:44:05 | INFO | kb-sync_0 | [stage-cluster:filebox] CREATED knowledge-base/architecture/cloud/genai.md
+2026-04-07 12:44:05 | INFO | kb-sync_0 | [stage-cluster:filebox] Finished sync: created=27 updated=0 unchanged=0 deleted=0 errors=0
