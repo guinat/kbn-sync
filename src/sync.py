@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import concurrent.futures
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import requests
 
@@ -41,49 +41,85 @@ class SyncEngine:
         self._logger.info("[%s] Starting sync", target.name)
         existing = client.list_entries(target)
 
-        existing_by_title: dict[str, KBEntry] = {
-            e.title: e for e in existing if e.title.startswith(prefix)
-        }
-        self._logger.info("[%s] Existing entries with repo prefix: %d", target.name, len(existing_by_title))
+        existing_by_title: dict[str, list[KBEntry]] = {}
+        for entry in existing:
+            if not entry.title.startswith(prefix):
+                continue
+            existing_by_title.setdefault(entry.title, []).append(entry)
+
+        existing_count = sum(len(entries) for entries in existing_by_title.values())
+        duplicate_count = sum(len(entries) - 1 for entries in existing_by_title.values() if len(entries) > 1)
+        self._logger.info("[%s] Existing entries with repo prefix: %d", target.name, existing_count)
+        if duplicate_count:
+            self._logger.warning(
+                "[%s] Found %d duplicate repo entries by title; they will be cleaned up",
+                target.name,
+                duplicate_count,
+            )
 
         for title, text in desired_entries.items():
-            current = existing_by_title.get(title)
+            desired_id = self._collector.build_entry_id(repo_name, target.space_id, title)
+            entries_for_title = existing_by_title.get(title, [])
+            current = next((entry for entry in entries_for_title if entry.id == desired_id), None)
+            desired_ready = current is not None
 
             if current is None:
-                new_id = self._collector.build_entry_id(repo_name, title)
                 try:
-                    client.save_entry(target, KBEntry(id=new_id, title=title, text=text, public=entry_public))
-                    result.created += 1
-                    self._logger.info("[%s] CREATED %s", target.name, title)
+                    client.save_entry(target, KBEntry(id=desired_id, title=title, text=text, public=entry_public))
+                    desired_ready = True
+                    if entries_for_title:
+                        result.updated += 1
+                        self._logger.info("[%s] MIGRATED %s to space-scoped id", target.name, title)
+                    else:
+                        result.created += 1
+                        self._logger.info("[%s] CREATED %s", target.name, title)
                 except requests.RequestException:
                     result.errors += 1
-                    self._logger.exception("[%s] CREATE failed for %s", target.name, title)
-                continue
-
-            if current.text == text and current.public == entry_public:
+                    if entries_for_title:
+                        self._logger.exception("[%s] MIGRATION failed for %s", target.name, title)
+                    else:
+                        self._logger.exception("[%s] CREATE failed for %s", target.name, title)
+                    continue
+            elif current.text == text and current.public == entry_public:
                 result.unchanged += 1
                 self._logger.info("[%s] UNCHANGED %s", target.name, title)
+            else:
+                try:
+                    client.save_entry(target, KBEntry(id=desired_id, title=title, text=text, public=entry_public))
+                    desired_ready = True
+                    result.updated += 1
+                    self._logger.info("[%s] UPDATED %s", target.name, title)
+                except requests.RequestException:
+                    result.errors += 1
+                    self._logger.exception("[%s] UPDATE failed for %s", target.name, title)
+                    continue
+
+            if not desired_ready:
                 continue
 
-            try:
-                client.save_entry(target, KBEntry(id=current.id, title=title, text=text, public=entry_public))
-                result.updated += 1
-                self._logger.info("[%s] UPDATED %s", target.name, title)
-            except requests.RequestException:
-                result.errors += 1
-                self._logger.exception("[%s] UPDATE failed for %s", target.name, title)
+            for duplicate in entries_for_title:
+                if duplicate.id == desired_id:
+                    continue
+                try:
+                    client.delete_entry(target, duplicate.id)
+                    result.deleted += 1
+                    self._logger.info("[%s] DELETED duplicate %s (%s)", target.name, title, duplicate.id)
+                except requests.RequestException:
+                    result.errors += 1
+                    self._logger.exception("[%s] DELETE duplicate failed for %s (%s)", target.name, title, duplicate.id)
 
         desired_titles = set(desired_entries.keys())
-        for title, current in existing_by_title.items():
+        for title, entries_for_title in existing_by_title.items():
             if title in desired_titles:
                 continue
-            try:
-                client.delete_entry(target, current.id)
-                result.deleted += 1
-                self._logger.info("[%s] DELETED %s", target.name, title)
-            except requests.RequestException:
-                result.errors += 1
-                self._logger.exception("[%s] DELETE failed for %s", target.name, title)
+            for current in entries_for_title:
+                try:
+                    client.delete_entry(target, current.id)
+                    result.deleted += 1
+                    self._logger.info("[%s] DELETED %s", target.name, title)
+                except requests.RequestException:
+                    result.errors += 1
+                    self._logger.exception("[%s] DELETE failed for %s", target.name, title)
 
         self._logger.info(
             "[%s] Finished sync: created=%d updated=%d unchanged=%d deleted=%d errors=%d",

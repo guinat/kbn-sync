@@ -38,6 +38,6 @@ class FileCollector:
         return entries
 
     @staticmethod
-    def build_entry_id(repo_name: str, title: str) -> str:
-        digest = hashlib.sha1(title.encode("utf-8")).hexdigest()[:20]
+    def build_entry_id(repo_name: str, space_id: str, title: str) -> str:
+        digest = hashlib.sha1(f"{space_id}:{title}".encode("utf-8")).hexdigest()[:20]
         return f"kb-{_slugify(repo_name)}-{digest}"
