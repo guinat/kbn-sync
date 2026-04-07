@@ -163,58 +163,41 @@ class KibanaClient:
         return space_ids
 
     def list_entries(self, target: ResolvedTarget, query: str = "") -> list[KBEntry]:
-        all_entries: list[KBEntry] = []
-        page = 1
-        per_page = 100
+        params: dict[str, Any] = {
+            "query": query,
+            "sortBy": "title",
+            "sortDirection": "asc",
+        }
 
-        while True:
-            params: dict[str, Any] = {
-                "query": query,
-                "sortBy": "title",
-                "sortDirection": "asc",
-                "page": page,
-                "perPage": per_page,
-            }
+        response = self._target_request(
+            target, "GET",
+            "/internal/observability_ai_assistant/kb/entries",
+            params=params,
+            call_name="List entries",
+        )
+        response.raise_for_status()
 
-            response = self._target_request(
-                target, "GET",
-                "/internal/observability_ai_assistant/kb/entries",
-                params=params,
-                call_name=f"List entries page {page}",
-            )
-            response.raise_for_status()
+        payload = response.json()
+        raw_entries = payload.get("entries", [])
+        if not isinstance(raw_entries, list):
+            return []
 
-            payload = response.json()
-            raw_entries = payload.get("entries", [])
-            if not isinstance(raw_entries, list) or not raw_entries:
-                break
+        entries: list[KBEntry] = []
+        for raw in raw_entries:
+            if not isinstance(raw, dict):
+                continue
+            entry_id = raw.get("id", "")
+            title = raw.get("title", "")
+            if not entry_id or not title:
+                continue
+            entries.append(KBEntry(
+                id=str(entry_id),
+                title=str(title),
+                text=str(raw.get("text", "")),
+                public=bool(raw.get("public", False)),
+            ))
 
-            for raw in raw_entries:
-                if not isinstance(raw, dict):
-                    continue
-                entry_id = raw.get("id", "")
-                title = raw.get("title", "")
-                if not entry_id or not title:
-                    continue
-                all_entries.append(KBEntry(
-                    id=str(entry_id),
-                    title=str(title),
-                    text=str(raw.get("text", "")),
-                    public=bool(raw.get("public", False)),
-                ))
-
-            total = payload.get("total")
-            if isinstance(total, int) and len(all_entries) >= total:
-                break
-            if len(raw_entries) < per_page:
-                break
-
-            page += 1
-            if page > 1000:
-                self._logger.warning("[%s] Pagination stopped after 1000 pages", target.name)
-                break
-
-        return all_entries
+        return entries
 
     def save_entry(self, target: ResolvedTarget, entry: KBEntry) -> None:
         response = self._target_request(
