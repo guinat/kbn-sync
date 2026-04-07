@@ -9,7 +9,7 @@ from typing import Any
 import requests
 from urllib3.exceptions import InsecureRequestWarning
 
-from kb_sync.config import AuthConfig, KibanaTargetConfig, ResolvedTarget
+from src.config import AuthConfig, KibanaTargetConfig, ResolvedTarget
 
 
 @dataclass(frozen=True)

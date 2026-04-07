@@ -5,7 +5,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from kb_sync import (
+from src import (
     FileCollector,
     GitClient,
     KibanaClient,

@@ -6,9 +6,9 @@ from dataclasses import dataclass, field
 
 import requests
 
-from kb_sync.client import KBEntry, KibanaClient
-from kb_sync.collector import FileCollector
-from kb_sync.config import AuthConfig, ResolvedTarget
+from src.client import KBEntry, KibanaClient
+from src.collector import FileCollector
+from src.config import AuthConfig, ResolvedTarget
 
 
 @dataclass

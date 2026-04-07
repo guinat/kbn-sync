@@ -1,0 +1,34 @@
+source:
+  repo_url_env: GITHUB_REPO
+  clone_dir: .cache/repos
+  git_ssh_command_env: GIT_SSH_COMMAND
+  # Optional override. If set, it has priority over git_ssh_command_env.
+  # git_ssh_command: "ssh -i ~/.ssh/git-kibana-kb -o IdentitiesOnly=yes"
+  include_extensions:
+    - .md
+  # Glob patterns matched against relative path and filename.
+  # Examples: "README.md", "doc2/**", "**/draft*.md"
+  exclude_globs:
+    - _sidebar.md
+    - README.md
+    - skeletton_template.md
+  public: true
+ 
+auth:
+  mode: basic
+  username_env: KIBANA_USERNAME
+  password_env: KIBANA_PASSWORD
+  api_key_env: KIBANA_API_KEY
+  fallback_api_key_env: ELASTIC_API_KEY
+ 
+kibana:
+  - name: stage-cluster
+    base_url: "https://teich.kb.clusters.ece.bsn0027990-stage-x7dpxg3j.np.eu-xp.stla-aws.private:9243"
+    verify_ssl: false
+    timeout_seconds: 30
+    http_retries: 2
+    http_retry_delay_seconds: 1.5
+    # Use a list for explicit targeting, or set to "all" to sync all Kibana spaces.
+    spaces: all
+    # spaces:
+    #   - filebox
